@@ -13,11 +13,15 @@ import create from 'zustand';
 interface Store {
 	message: string;
 	setMessage: (message: string) => void;
+	colors: string[];
+	setColors: (colors: string[]) => void;
 }
 
 export const useStore = create<Store>(
 	(set): Store => ({
-		message: 'ok',
-		setMessage: (message: string) => set((state) => ({ ...state, message }))
+		message: '',
+		setMessage: (message: string) => set((state) => ({ ...state, message })),
+		colors: ['blue', 'white'],
+		setColors: (colors: string[]) => set((state) => ({...state, colors})) 
 	})
 );
