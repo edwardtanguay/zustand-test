@@ -1,4 +1,4 @@
-import { useStore, AppState } from '../appStore';
+import { useStore, AppState } from '../store';
 
 export const First = () => {
 	const count = useStore((state: AppState) => state.count);
