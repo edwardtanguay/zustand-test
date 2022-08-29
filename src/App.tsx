@@ -73,15 +73,31 @@ function App() {
 						</div>
 					</div>
 
-					<div className="data">
-						<label>Load data</label>
-						<div>
-							<button onClick={() => store.loadTechBooks()}>
-								load tech books
-							</button>
+					{store.techBooks.length === 0 && (
+						<div className="data">
+							<label>Load data</label>
+							<div>
+								<button disabled={store.techBooksAreLoading} onClick={() => store.loadTechBooks()}>
+									load tech books
+								</button>
+							</div>
 						</div>
-					</div>
+					)}
+
+					{store.techBooks.length > 0 && (
+						<div className="data">
+							<label>Search tech books:</label>
+							<input
+								type="text"
+								value={store.techBookSearch}
+								onChange={(e) =>
+									store.setTechBookSearch(e.target.value)
+								}
+							/>
+						</div>
+					)}
 				</section>
+
 				<section className="dataArea">
 					<InfoBox />
 				</section>

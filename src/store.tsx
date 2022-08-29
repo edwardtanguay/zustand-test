@@ -27,6 +27,8 @@ interface IStore {
 	techBooks: ITechBook[];
 	loadTechBooks: () => void;
 	techBooksAreLoading: boolean;
+	techBookSearch: string;
+	setTechBookSearch: (message: string) => void;
 }
 
 export const useStore = create<IStore>(
@@ -101,5 +103,8 @@ export const useStore = create<IStore>(
 			}, 2000); // emulate long loading time
 		},
 		techBooksAreLoading: false,
+		techBookSearch: '',
+		setTechBookSearch: (techBookSearch: string) =>
+			set((state) => ({ ...state, techBookSearch: techBookSearch })),
 	})
 );

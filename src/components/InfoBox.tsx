@@ -38,7 +38,13 @@ export const InfoBox = () => {
 				)}
 				<ul>
 					{store.techBooks.map((techBook, i) => {
-						return <li key={i}>{techBook.title}</li>;
+						return (
+							<>
+								{techBook.title.toLowerCase().includes(
+									store.techBookSearch.toLowerCase()
+								) && <li key={i}>{techBook.title}</li>}
+							</>
+						);
 					})}
 				</ul>
 			</div>
