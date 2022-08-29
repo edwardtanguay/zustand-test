@@ -18,6 +18,6 @@ interface Store {
 export const useStore = create<Store>(
 	(set): Store => ({
 		message: 'ok',
-		setMessage: (message: string) => set((state) => ({ ...state, message: 'new' }))
+		setMessage: (message: string) => set((state) => ({ ...state, message }))
 	})
 );
