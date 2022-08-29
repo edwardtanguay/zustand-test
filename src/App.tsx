@@ -29,7 +29,15 @@ function App() {
 			</div>
 
 			<div className="data">
-				<label>Complex logic:</label>
+				<label>Object:</label>
+				<div>
+					<button onClick={() => store.toggleCurrentUserStatusOnline()}>toggle online status</button>
+					<button onClick={() => store.toggleCurrentUserStatusEmail()}>toggle email status</button>
+				</div>
+			</div>
+
+			<div className="data">
+				<label>Change multiple values:</label>
 				<div>
 					<button onClick={() => store.deleteVowelsAndColorRed()}>delete vowels from message and color red from colors</button>
 				</div>

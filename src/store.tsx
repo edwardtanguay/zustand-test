@@ -17,6 +17,12 @@ interface Store {
 	addColor: (color: string) => void;
 	deleteColor: () => void;
 	deleteVowelsAndColorRed: () => void;
+	currentUserStatus: {
+		isOnline: boolean;
+		emailIsConfirmed: boolean;
+	};
+	toggleCurrentUserStatusOnline: () => void;
+	toggleCurrentUserStatusEmail: () => void;
 }
 
 export const useStore = create<Store>(
@@ -32,13 +38,32 @@ export const useStore = create<Store>(
 			set((state) => ({ ...state, colors: [...state.colors, color] })),
 		deleteColor: () =>
 			set((state) => ({ ...state, colors: state.colors.slice(0, -1) })),
-		// complex logic
-		deleteVowelsAndColorRed: () => 
+		// object
+		currentUserStatus: {
+			isOnline: false,
+			emailIsConfirmed: true,
+		},
+		toggleCurrentUserStatusOnline: () =>
+			set((state) => {
+				const _state = { ...state };
+				_state.currentUserStatus.isOnline =
+					!_state.currentUserStatus.isOnline;
+				return _state;
+			}),
+		toggleCurrentUserStatusEmail: () =>
+			set((state) => {
+				const _state = { ...state };
+				_state.currentUserStatus.emailIsConfirmed =
+					!_state.currentUserStatus.emailIsConfirmed;
+				return _state;
+			}),
+		// change multiple values in state
+		deleteVowelsAndColorRed: () =>
 			set((state) => {
 				const _state = { ...state };
 				_state.message = _state.message.replace(/[aeiou]/gi, '');
-				_state.colors = _state.colors.filter(m => m !== 'red');
+				_state.colors = _state.colors.filter((m) => m !== 'red');
 				return _state;
-			})
+			}),
 	})
 );
