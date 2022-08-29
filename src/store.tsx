@@ -23,6 +23,8 @@ interface Store {
 	};
 	toggleCurrentUserStatusOnline: () => void;
 	toggleCurrentUserStatusEmail: () => void;
+	techBooks: TechBook[];
+	loadTechBooks: () => void;
 }
 
 export const useStore = create<Store>(
@@ -63,6 +65,26 @@ export const useStore = create<Store>(
 				const _state = { ...state };
 				_state.message = _state.message.replace(/[aeiou]/gi, '');
 				_state.colors = _state.colors.filter((m) => m !== 'red');
+				return _state;
+			}),
+		techBooks: [],
+		loadTechBooks: () =>
+			set((state) => {
+				const _state = { ...state };
+				_state.techBooks = [
+					{
+						idCode: 'nnn',
+						title: 'Book 1',
+						description: 'nnn',
+						language: 'nnn',
+					},
+					{
+						idCode: 'nnn',
+						title: 'Book 2',
+						description: 'nnn',
+						language: 'nnn',
+					},
+				];
 				return _state;
 			}),
 	})

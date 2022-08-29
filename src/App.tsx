@@ -34,10 +34,10 @@ function App() {
 							</button>
 						</div>
 						<button onClick={() => store.deleteColor()}>
-							Delete color
+							delete color
 						</button>
 						<button onClick={() => store.setColors([])}>
-							Delete all colors
+							delete all colors
 						</button>
 					</div>
 
@@ -69,6 +69,15 @@ function App() {
 							>
 								delete vowels from message and color red from
 								colors
+							</button>
+						</div>
+					</div>
+
+					<div className="data">
+						<label>Load data</label>
+						<div>
+							<button onClick={() => store.loadTechBooks()}>
+								load tech books
 							</button>
 						</div>
 					</div>

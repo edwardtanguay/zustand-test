@@ -1,3 +1,5 @@
+$dataColor: yellow;
+
 body {
 	background-color: #333;
 	color: #ccc;
@@ -52,11 +54,18 @@ body {
 					color: #222;
 
 					.theValue {
-						color: yellow;
+						color: $dataColor;
 					}
 
-					div {
+					div.row {
 						margin: 0 0 .5rem 0;
+
+						ul {
+							margin: .5rem 0 0 -.5rem;
+							li {
+								color: $dataColor;
+							}
+						}
 					}
 				}
 			}
