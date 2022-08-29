@@ -1,18 +1,6 @@
+import { useStore, AppState } from './appStore';
 import './App.scss';
-import create from 'zustand';
 import { First } from './components/First';
-
-interface AppState {
-	search: string;
-	count: number;
-	increaseCount: () => void;
-}
-
-const useStore = create<AppState>((set) => ({
-	search: '',
-	count: 3,
-	increaseCount: () => set((state:AppState) => ({count: state.count + 1}))
-}))
 
 function App() {
 	const count = useStore((state: AppState) => state.count);
