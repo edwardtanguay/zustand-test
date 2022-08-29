@@ -28,6 +28,13 @@ function App() {
 				<button onClick={() => store.setColors([])}>Delete all colors</button>
 			</div>
 
+			<div className="data">
+				<label>Complex logic:</label>
+				<div>
+					<button onClick={() => store.deleteVowelsAndColorRed()}>delete vowels and color red</button>
+				</div>
+			</div>
+
 			<InfoBox />
 		</div>
 	);
