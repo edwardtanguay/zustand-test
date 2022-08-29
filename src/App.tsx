@@ -14,6 +14,7 @@ function App() {
 					<div className="data">
 						<label>Message:</label>
 						<input
+							autoFocus
 							type="text"
 							value={store.message}
 							onChange={(e) => store.setMessage(e.target.value)}
@@ -77,7 +78,10 @@ function App() {
 						<div className="data">
 							<label>Load data</label>
 							<div>
-								<button disabled={store.techBooksAreLoading} onClick={() => store.loadTechBooks()}>
+								<button
+									disabled={store.techBooksAreLoading}
+									onClick={() => store.loadTechBooks()}
+								>
 									load tech books
 								</button>
 							</div>
