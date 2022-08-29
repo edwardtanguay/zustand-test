@@ -26,6 +26,7 @@ interface IStore {
 	toggleCurrentUserStatusEmail: () => void;
 	techBooks: ITechBook[];
 	loadTechBooks: () => void;
+	techBooksAreLoading: boolean;
 }
 
 export const useStore = create<IStore>(
@@ -69,27 +70,30 @@ export const useStore = create<IStore>(
 				return _state;
 			}),
 		techBooks: [],
-		loadTechBooks: async () => {
-			const rawTechBooks = (
-				await axios.get(
-					'https://edwardtanguay.netlify.app/share/techBooks.json'
-				)
-			).data;
-			const _techBooks: ITechBook[] = [];
-			rawTechBooks.forEach((rawTechBook: any) => {
-				const techBook: ITechBook = {
-					idCode: rawTechBook.idCode,
-					title: rawTechBook.title,
-					description: rawTechBook.description,
-					language: rawTechBook.language,
-				};
-				_techBooks.push(techBook);
-			});
-			set((state) => {
-				const _state = { ...state };
-				_state.techBooks = _techBooks;
-				return _state;
-			});
+		loadTechBooks: () => {
+			setTimeout(async () => {
+				const rawTechBooks = (
+					await axios.get(
+						'https://edwardtanguay.netlify.app/share/techBooks.json'
+					)
+				).data;
+				const _techBooks: ITechBook[] = [];
+				rawTechBooks.forEach((rawTechBook: any) => {
+					const techBook: ITechBook = {
+						idCode: rawTechBook.idCode,
+						title: rawTechBook.title,
+						description: rawTechBook.description,
+						language: rawTechBook.language,
+					};
+					_techBooks.push(techBook);
+				});
+				set((state) => {
+					const _state = { ...state };
+					_state.techBooks = _techBooks;
+					return _state;
+				});
+			}, 2000); // emulate long loading time
 		},
+		techBooksAreLoading: false
 	})
 );
