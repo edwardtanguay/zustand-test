@@ -30,17 +30,27 @@ body {
 				width: 98%;
 				display: block;
 			}
+			
+			button {
+				margin: 0 .2rem .2rem 0;
+			}
 		}
 
 		.infoBox {
-			background-color: #555;
+			background-color: #777;
 			padding: 1rem;
-			width: 23rem;
+			width: 28rem;
 			border-radius: 1rem;
+			color: #222;
 
 			.theValue {
-				color: rgb(195, 139, 48);
+				color: rgb(112, 57, 9);
 			}
+
+			div {
+				margin: 0 0 .5rem 0;
+			}
+
 		}
 	}
 }

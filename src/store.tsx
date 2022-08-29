@@ -18,6 +18,7 @@ interface Store {
 	colors: string[];
 	setColors: (colors: string[]) => void;
 	addColor: (color: string) => void;
+	deleteColor: () => void;
 }
 
 export const useStore = create<Store>(
@@ -28,6 +29,7 @@ export const useStore = create<Store>(
 		// array of strings
 		colors: ['blue', 'white'],
 		setColors: (colors: string[]) => set((state) => ({ ...state, colors })),
-		addColor: (color: string) => set((state) => ({ ...state, colors: [...state.colors, color] }) ) 
+		addColor: (color: string) => set((state) => ({ ...state, colors: [...state.colors, color] }) ),
+		deleteColor: () => set((state) => ({ ...state, colors: state.colors.slice(0,-1) }) ) 
 	})
 );
