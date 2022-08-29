@@ -26,7 +26,7 @@ export const useStore = create<Store>(
 		setMessage: (message: string) =>
 			set((state) => ({ ...state, message })),
 		// array of strings
-		colors: ['blue', 'white'],
+		colors: ['blue', 'white', 'red'],
 		setColors: (colors: string[]) => set((state) => ({ ...state, colors })),
 		addColor: (color: string) =>
 			set((state) => ({ ...state, colors: [...state.colors, color] })),
@@ -36,8 +36,8 @@ export const useStore = create<Store>(
 		deleteVowelsAndColorRed: () => 
 			set((state) => {
 				const _state = { ...state };
-				_state.message = 'nnn';
-				console.log(_state);
+				_state.message = _state.message.replace(/[aeiou]/gi, '');
+				_state.colors = _state.colors.filter(m => m !== 'red');
 				return _state;
 			})
 	})

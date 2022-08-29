@@ -31,7 +31,7 @@ function App() {
 			<div className="data">
 				<label>Complex logic:</label>
 				<div>
-					<button onClick={() => store.deleteVowelsAndColorRed()}>delete vowels and color red</button>
+					<button onClick={() => store.deleteVowelsAndColorRed()}>delete vowels from message and color red from colors</button>
 				</div>
 			</div>
 
