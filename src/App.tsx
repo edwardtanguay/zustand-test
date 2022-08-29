@@ -1,9 +1,17 @@
 import { useStore } from './store';
+import { useRef, useEffect } from 'react';
 import './App.scss';
 import { InfoBox } from './components/InfoBox';
 
 function App() {
 	const store = useStore((state) => state);
+	const techBookSearchRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		if (techBookSearchRef.current !== null) {
+			techBookSearchRef.current.focus();
+		}
+	}, [store.techBooks]);
 
 	return (
 		<div className="App">
@@ -93,6 +101,7 @@ function App() {
 							<label>Search tech books:</label>
 							<input
 								type="text"
+								ref={techBookSearchRef}
 								value={store.techBookSearch}
 								onChange={(e) =>
 									store.setTechBookSearch(e.target.value)
