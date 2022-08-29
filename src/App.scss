@@ -52,6 +52,10 @@ body {
 					width: 28rem;
 					border-radius: 1rem;
 					color: #222;
+					
+					label {
+						font-weight: bold;
+					}
 
 					.theValue {
 						color: $dataColor;
