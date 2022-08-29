@@ -5,52 +5,61 @@ body {
 	padding: 1rem;
 
 	.App {
-		width: 30rem;
 
-		h1 {
-			margin: 0 0 1rem 0;
-		}
+		main {
+			display: flex;
+			gap: 1rem;
 
-		h2 {
-			margin: 0 0 1rem 0;
-		}
+			section.controlArea {
+				width: 30rem;
 
-		div.data {
-			background-color: #434343;
-			margin: 0 0 1rem 0;
-			padding: 1rem;
-			border-radius: .5rem;
+				h1 {
+					margin: 0 0 1rem 0;
+				}
 
-			label {
-				margin: 0 0 .5rem 0;
-				display: block;
+				div.data {
+					background-color: #434343;
+					margin: 0 0 1rem 0;
+					padding: 1rem;
+					border-radius: .5rem;
+
+					label {
+						margin: 0 0 .5rem 0;
+						display: block;
+					}
+
+					input {
+						width: 98%;
+						display: block;
+					}
+
+					button {
+						margin: 0 .2rem .2rem 0;
+					}
+				}
 			}
 
-			input {
-				width: 98%;
-				display: block;
-			}
-			
-			button {
-				margin: 0 .2rem .2rem 0;
-			}
-		}
+			section.dataArea {
+				h2 {
+					margin: 0 0 1rem 0;
+				}
 
-		.infoBox {
-			background-color: #777;
-			padding: 1rem;
-			width: 28rem;
-			border-radius: 1rem;
-			color: #222;
+				.infoBox {
+					background-color: #777;
+					padding: 1rem;
+					width: 28rem;
+					border-radius: 1rem;
+					color: #222;
 
-			.theValue {
-				color:yellow;
+					.theValue {
+						color: yellow;
+					}
+
+					div {
+						margin: 0 0 .5rem 0;
+					}
+				}
 			}
-
-			div {
-				margin: 0 0 .5rem 0;
-			}
-
 		}
 	}
 }
