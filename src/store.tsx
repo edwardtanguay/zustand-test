@@ -15,6 +15,7 @@ interface Store {
 	setMessage: (message: string) => void;
 	colors: string[];
 	setColors: (colors: string[]) => void;
+	addColor: (color: string) => void;
 }
 
 export const useStore = create<Store>(
@@ -22,6 +23,7 @@ export const useStore = create<Store>(
 		message: '',
 		setMessage: (message: string) => set((state) => ({ ...state, message })),
 		colors: ['blue', 'white'],
-		setColors: (colors: string[]) => set((state) => ({...state, colors})) 
+		setColors: (colors: string[]) => set((state) => ({ ...state, colors })),
+		addColor: (color: string) => set((state) => ({ ...state, colors: [...state.colors, color] }) ) 
 	})
 );

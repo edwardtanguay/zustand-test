@@ -20,7 +20,8 @@ function App() {
 					<div>{color}</div>
 				))}
 			</div>
-			<button onClick={() => store.setColors(['dfd','skfjsfsdf','skdjfdkf'])}>add color</button>
+			<button onClick={() => store.setColors(['dfd','skfjsfsdf','skdjfdkf'])}>set colors</button>
+			<button onClick={() => store.addColor('nnnnn')}>add color</button>
 			<hr />
 			<InfoBox />
 		</div>
