@@ -1,5 +1,6 @@
 import { useStore } from './store';
 import './App.scss';
+import { InfoBox } from './components/InfoBox';
 
 function App() {
 	const store = useStore((state) => state);
@@ -10,6 +11,8 @@ function App() {
 			<p>Message: {store.message}</p>
 			<button onClick={() => store.setMessage('new message')}>change message</button>
 			<button onClick={() => store.setMessage('old message')}>change message</button>
+			<hr/>
+			<InfoBox/>
 		</div>
 	);
 }
