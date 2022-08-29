@@ -4,14 +4,43 @@ body {
 	font-family: sans-serif;
 	padding: 1rem;
 
-	h1 {
-		margin: 0;
-	}
-	
-	.infoBox {
-		background-color: #555;
-		padding: 1rem;
-		width: 23rem;
-		border-radius: 1rem;
+	.App {
+		width: 30rem;
+
+		h1 {
+			margin: 0 0 1rem 0;
+		}
+
+		h2 {
+			margin: 0 0 1rem 0;
+		}
+
+		div.data {
+			background-color: #434343;
+			margin: 0 0 1rem 0;
+			padding: 1rem;
+			border-radius: .5rem;
+
+			label {
+				margin: 0 0 .5rem 0;
+				display: block;
+			}
+
+			input {
+				width: 98%;
+				display: block;
+			}
+		}
+
+		.infoBox {
+			background-color: #555;
+			padding: 1rem;
+			width: 23rem;
+			border-radius: 1rem;
+
+			.theValue {
+				color: rgb(195, 139, 48);
+			}
+		}
 	}
 }

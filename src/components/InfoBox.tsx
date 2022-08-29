@@ -5,7 +5,8 @@ export const InfoBox = () => {
 
 	return (
 		<div className="infoBox">
-			[{store.message}]
+			<h2>Another component:</h2>
+			<div>Message: <span className="theValue">{store.message}</span></div>
 		</div>
 	);
 };

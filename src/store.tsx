@@ -1,13 +1,15 @@
 import create from 'zustand';
 
-// export interface TechBook {
-// 	idCode: string;
-// 	title: string;
-// 	description: string;
-// 	language: string;
-// }
+export interface TechBook {
+	idCode: string;
+	title: string;
+	description: string;
+	language: string;
+}
 
+const techBookModel = {
 
+}
 
 
 interface Store {
@@ -20,8 +22,10 @@ interface Store {
 
 export const useStore = create<Store>(
 	(set): Store => ({
-		message: '',
+		// string
+		message: 'test',
 		setMessage: (message: string) => set((state) => ({ ...state, message })),
+		// array of strings
 		colors: ['blue', 'white'],
 		setColors: (colors: string[]) => set((state) => ({ ...state, colors })),
 		addColor: (color: string) => set((state) => ({ ...state, colors: [...state.colors, color] }) ) 

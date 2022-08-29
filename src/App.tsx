@@ -8,17 +8,10 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Zustand Test</h1>
-			<p>Message: {store.message}</p>
-			<button onClick={() => store.setMessage('new message')}>
-				change message
-			</button>
-			<button onClick={() => store.setMessage('old message')}>
-				change message
-			</button>
+			<div className="data"><label>Message:</label> <input type="text" value={store.message} onChange={(e) => store.setMessage(e.target.value)} /> </div>
+			
 			<div className="colors">
-				{store.colors.map((color) => (
-					<div>{color}</div>
-				))}
+				{store.colors.map((color) => color).join(', ')}
 			</div>
 			<button onClick={() => store.setColors(['dfd','skfjsfsdf','skdjfdkf'])}>set colors</button>
 			<button onClick={() => store.addColor('nnnnn')}>add color</button>
