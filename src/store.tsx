@@ -1,6 +1,7 @@
 import create from 'zustand';
+import axios from 'axios';
 
-export interface TechBook {
+export interface ITechBook {
 	idCode: string;
 	title: string;
 	description: string;
@@ -9,7 +10,7 @@ export interface TechBook {
 
 const techBookModel = {};
 
-interface Store {
+interface IStore {
 	message: string;
 	setMessage: (message: string) => void;
 	colors: string[];
@@ -23,12 +24,12 @@ interface Store {
 	};
 	toggleCurrentUserStatusOnline: () => void;
 	toggleCurrentUserStatusEmail: () => void;
-	techBooks: TechBook[];
+	techBooks: ITechBook[];
 	loadTechBooks: () => void;
 }
 
-export const useStore = create<Store>(
-	(set): Store => ({
+export const useStore = create<IStore>(
+	(set): IStore => ({
 		// string
 		message: 'test',
 		setMessage: (message: string) =>
@@ -68,24 +69,27 @@ export const useStore = create<Store>(
 				return _state;
 			}),
 		techBooks: [],
-		loadTechBooks: () =>
+		loadTechBooks: async () => {
+			const rawTechBooks = (
+				await axios.get(
+					'https://edwardtanguay.netlify.app/share/techBooks.json'
+				)
+			).data;
+			const _techBooks: ITechBook[] = [];
+			rawTechBooks.forEach((rawTechBook: any) => {
+				const techBook: ITechBook = {
+					idCode: rawTechBook.idCode,
+					title: rawTechBook.title,
+					description: rawTechBook.description,
+					language: rawTechBook.language,
+				};
+				_techBooks.push(techBook);
+			});
 			set((state) => {
 				const _state = { ...state };
-				_state.techBooks = [
-					{
-						idCode: 'nnn',
-						title: 'Book 1',
-						description: 'nnn',
-						language: 'nnn',
-					},
-					{
-						idCode: 'nnn',
-						title: 'Book 2',
-						description: 'nnn',
-						language: 'nnn',
-					},
-				];
+				_state.techBooks = _techBooks;
 				return _state;
-			}),
+			});
+		},
 	})
 );
