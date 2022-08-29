@@ -71,6 +71,11 @@ export const useStore = create<IStore>(
 			}),
 		techBooks: [],
 		loadTechBooks: () => {
+			set((state) => {
+				const _state = { ...state };
+				_state.techBooksAreLoading = true;
+				return _state;
+			});
 			setTimeout(async () => {
 				const rawTechBooks = (
 					await axios.get(
@@ -90,10 +95,11 @@ export const useStore = create<IStore>(
 				set((state) => {
 					const _state = { ...state };
 					_state.techBooks = _techBooks;
+					_state.techBooksAreLoading = false;
 					return _state;
 				});
 			}, 2000); // emulate long loading time
 		},
-		techBooksAreLoading: false
+		techBooksAreLoading: false,
 	})
 );
