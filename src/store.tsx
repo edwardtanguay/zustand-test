@@ -8,8 +8,6 @@ export interface ITechBook {
 	language: string;
 }
 
-const techBookModel = {};
-
 interface IStore {
 	message: string;
 	setMessage: (message: string) => void;
